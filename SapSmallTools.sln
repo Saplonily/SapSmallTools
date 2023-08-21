@@ -5,9 +5,18 @@ VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "md5", "md5\md5.csproj", "{380A745E-6385-4335-9317-5F43CBAD0272}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sha1", "sha1\sha1.csproj", "{6298D32D-D3BC-462A-8B85-3CB45F3B8F4F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sha1", "sha1\sha1.csproj", "{6298D32D-D3BC-462A-8B85-3CB45F3B8F4F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sha512", "sha512\sha512.csproj", "{535362E8-D742-49AC-ABE5-57B24F3021ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sha512", "sha512\sha512.csproj", "{535362E8-D742-49AC-ABE5-57B24F3021ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hasher", "Hasher\Hasher.csproj", "{26CE469B-676D-4D1B-8793-EC4F3B4DB88B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sha256", "sha256\sha256.csproj", "{C1860D03-855A-4519-A8AF-3B2C65FFE175}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "解决方案项", "解决方案项", "{F38B138E-C1E7-4D4F-8C72-04031363A636}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +36,14 @@ Global
 		{535362E8-D742-49AC-ABE5-57B24F3021ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{535362E8-D742-49AC-ABE5-57B24F3021ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{535362E8-D742-49AC-ABE5-57B24F3021ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26CE469B-676D-4D1B-8793-EC4F3B4DB88B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26CE469B-676D-4D1B-8793-EC4F3B4DB88B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26CE469B-676D-4D1B-8793-EC4F3B4DB88B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26CE469B-676D-4D1B-8793-EC4F3B4DB88B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1860D03-855A-4519-A8AF-3B2C65FFE175}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1860D03-855A-4519-A8AF-3B2C65FFE175}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1860D03-855A-4519-A8AF-3B2C65FFE175}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1860D03-855A-4519-A8AF-3B2C65FFE175}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

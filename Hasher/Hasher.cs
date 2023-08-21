@@ -1,18 +1,19 @@
-﻿using System;
-using System.CommandLine;
-using System.Runtime.InteropServices.Marshalling;
-using System.Security.Cryptography;
+﻿using System.CommandLine;
 using System.Text;
 
 namespace SapSmallTools;
 
-public class Program
+public abstract class Hasher
 {
-    public static void Main(string[] args)
+    public abstract string HashName { get; }
+    public abstract byte[] HashData(byte[] array);
+    public abstract byte[] HashData(Stream stream);
+
+    public void Run(string[] args)
     {
-        var rootCmd = new RootCommand("md5 calculator of SapSmallTools.");
-        var fileOptions = new Option<FileInfo?>("-f", "The file to be caculated md5.");
-        var textOptions = new Option<string>("-t", "The text to be caculated md5.");
+        var rootCmd = new RootCommand($"{HashName} calculator of SapSmallTools.");
+        var fileOptions = new Option<FileInfo?>("-f", $"The file to be caculated {HashName}.");
+        var textOptions = new Option<string>("-t", $"The text to be caculated {HashName}.");
 
         rootCmd.Add(fileOptions);
         rootCmd.Add(textOptions);
@@ -29,7 +30,7 @@ public class Program
         rootCmd.Invoke(args);
     }
 
-    public static void CalcFile(FileInfo fi)
+    private void CalcFile(FileInfo fi)
     {
         if (fi.Exists is false)
         {
@@ -37,13 +38,13 @@ public class Program
             return;
         }
         using var fs = fi.Open(FileMode.Open, FileAccess.Read);
-        byte[] hashbytes = MD5.HashData(fs);
-        Console.WriteLine($"File sha1 result: {GetHashString(hashbytes)}");
+        byte[] hashbytes = HashData(fs);
+        Console.WriteLine($"File {HashName} result: {GetHashString(hashbytes)}");
     }
 
-    public static void CalcText(string str)
+    private void CalcText(string str)
     {
-        Console.WriteLine("md5 of the text:");
+        Console.WriteLine($"{HashName} of the text:");
         Console.WriteLine($"    UTF8:    {StringHash(str, Encoding.UTF8)}");
         Console.WriteLine($"    UTF16:   {StringHash(str, Encoding.Unicode)}");
         Console.WriteLine($"    UTF32:   {StringHash(str, Encoding.UTF32)}");
@@ -52,13 +53,13 @@ public class Program
         Console.WriteLine($"    BEUTF16: {StringHash(str, Encoding.BigEndianUnicode)}");
     }
 
-    public static string StringHash(string str, Encoding encoding)
+    private string StringHash(string str, Encoding encoding)
     {
         byte[] bytes = encoding.GetBytes(str);
-        byte[] hashbytes = MD5.HashData(bytes);
+        byte[] hashbytes = HashData(bytes);
         return GetHashString(hashbytes);
     }
 
-    public static string GetHashString(byte[] hash)
+    private static string GetHashString(byte[] hash)
         => string.Join(null, hash.Select(b => b.ToString("x").PadLeft(2, '0')));
 }

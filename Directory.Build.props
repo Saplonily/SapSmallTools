@@ -1,0 +1,15 @@
+<Project>
+	<PropertyGroup>
+		<Configuration>Release</Configuration>
+		<Platform>Any CPU</Platform>
+		<PublishDir>bin\thisPublish</PublishDir>
+		<PublishProtocol>FileSystem</PublishProtocol>
+		<_TargetId>Folder</_TargetId>
+		<TargetFramework>net7.0</TargetFramework>
+		<SelfContained>false</SelfContained>
+		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+		<PublishSingleFile>false</PublishSingleFile>
+		<PublishReadyToRun>true</PublishReadyToRun>
+		<SatelliteResourceLanguages>zh-Hans</SatelliteResourceLanguages>
+	</PropertyGroup>
+</Project>
